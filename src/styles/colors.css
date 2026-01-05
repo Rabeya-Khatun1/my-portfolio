@@ -1,0 +1,228 @@
+/* Professional Portfolio Color Scheme */
+/* Rabeya Khatun - MERN Stack Developer */
+
+:root {
+  /* ===== PRIMARY BRAND COLORS ===== */
+  --brand-teal: #0f766e;
+  --brand-blue: #0891b2;
+  --brand-royal: #3b82f6;
+  --brand-purple: #8b5cf6;
+  
+  /* ===== SECONDARY ACCENT COLORS ===== */
+  --accent-coral: #f97316;
+  --accent-rose: #ec4899;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  
+  /* ===== NEUTRAL COLORS ===== */
+  --neutral-charcoal: #1f2937;
+  --neutral-slate: #64748b;
+  --neutral-light: #f1f5f9;
+  --neutral-white: #ffffff;
+  --neutral-soft-black: #0f172a;
+  
+  /* ===== GRADIENT COMBINATIONS ===== */
+  --brand-gradient: linear-gradient(135deg, #0f766e, #3b82f6, #8b5cf6);
+  --hero-gradient: linear-gradient(135deg, #0f172a, #0f766e, #10b981);
+  --warm-gradient: linear-gradient(135deg, #f97316, #ec4899, #8b5cf6);
+  --cool-gradient: linear-gradient(135deg, #14b8a6, #06b6d4, #3b82f6);
+  --success-gradient: linear-gradient(135deg, #10b981, #14b8a6);
+  --warning-gradient: linear-gradient(135deg, #f59e0b, #f97316);
+  
+  /* ===== SECTION BACKGROUNDS ===== */
+  --light-section-bg: linear-gradient(135deg, #f8fafc, #e0f2fe, #ecfdf5);
+  --dark-section-bg: linear-gradient(135deg, #0f172a, #1e293b, #0f766e);
+  --neutral-section-bg: linear-gradient(135deg, #ffffff, #f0f9ff, #f0fdfa);
+  
+  /* ===== NAVBAR COLORS ===== */
+  --navbar-bg: linear-gradient(90deg, rgba(15, 118, 110, 0.9), rgba(8, 145, 178, 0.8), rgba(59, 130, 246, 0.9));
+  --navbar-text: #ffffff;
+  --navbar-text-hover: #06b6d4;
+  --navbar-active: #f97316;
+  --navbar-logo: linear-gradient(135deg, #f97316, #ec4899, #0f766e);
+  
+  /* ===== HERO SECTION COLORS ===== */
+  --hero-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #0f766e 75%, #10b981 100%);
+  --hero-title: linear-gradient(135deg, #ffffff 0%, #06b6d4 50%, #14b8a6 100%);
+  --hero-subtitle: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(6,182,212,1) 25%, rgba(20,184,166,1) 50%, rgba(249,115,22,0.9) 75%, rgba(255,255,255,0.9) 100%);
+  --hero-cta: linear-gradient(135deg, #14b8a6, #06b6d4, #3b82f6);
+  --hero-cta-hover: linear-gradient(135deg, #0d9488, #0284c7, #2563eb);
+  
+  /* ===== ABOUT SECTION COLORS ===== */
+  --about-bg: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #ecfdf5 100%);
+  --about-title: linear-gradient(135deg, #0f766e 0%, #3b82f6 35%, #8b5cf6 70%, #ec4899 100%);
+  --about-text: #374151;
+  --about-highlight-1: linear-gradient(90deg, #0f766e, #3b82f6, #8b5cf6);
+  --about-highlight-2: linear-gradient(90deg, #3b82f6, #06b6d4);
+  
+  /* ===== TECH STACK COLORS ===== */
+  --tech-mongodb: linear-gradient(135deg, #10b981, #059669);
+  --tech-express: linear-gradient(135deg, #f59e0b, #d97706);
+  --tech-react: linear-gradient(135deg, #3b82f6, #06b6d4);
+  --tech-node: linear-gradient(135deg, #10b981, #14b8a6);
+  --tech-git: linear-gradient(135deg, #f97316, #ea580c);
+  --tech-js: linear-gradient(135deg, #eab308, #ca8a04);
+  
+  /* ===== STATS COLORS ===== */
+  --stat-1: linear-gradient(135deg, #14b8a6, #06b6d4);
+  --stat-2: linear-gradient(135deg, #3b82f6, #6366f1);
+  --stat-3: linear-gradient(135deg, #8b5cf6, #ec4899);
+  --stat-4: linear-gradient(135deg, #f97316, #ef4444);
+  
+  /* ===== PROJECTS SECTION COLORS ===== */
+  --projects-bg: linear-gradient(135deg, #ffffff 0%, #f0f9ff 50%, #f0fdfa 100%);
+  --projects-title: linear-gradient(135deg, #1f2937, #374151, #0f766e);
+  --project-card-bg: rgba(255, 255, 255, 0.8);
+  --project-card-border: rgba(255, 255, 255, 0.3);
+  --project-card-shadow: rgba(15, 118, 110, 0.1);
+  --project-card-hover-shadow: rgba(15, 118, 110, 0.2);
+  
+  /* ===== CONTACT SECTION COLORS ===== */
+  --contact-bg: linear-gradient(135deg, #1e293b 0%, #0f766e 50%, #1e40af 100%);
+  --contact-title: #ffffff;
+  --contact-text: #e2e8f0;
+  --contact-accent: #06b6d4;
+  --contact-input-bg: rgba(255, 255, 255, 0.1);
+  --contact-input-border: rgba(255, 255, 255, 0.2);
+  --contact-input-focus: #06b6d4;
+  
+  /* ===== FOOTER COLORS ===== */
+  --footer-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --footer-text: #94a3b8;
+  --footer-links: #e2e8f0;
+  --footer-links-hover: #06b6d4;
+  --footer-divider: rgba(148, 163, 184, 0.2);
+  
+  /* ===== BUTTON STATES ===== */
+  --btn-primary: linear-gradient(135deg, #0f766e, #14b8a6);
+  --btn-primary-hover: linear-gradient(135deg, #0d9488, #0891b2);
+  --btn-primary-active: linear-gradient(135deg, #0f766e, #0d9488);
+  --btn-secondary: linear-gradient(135deg, #3b82f6, #06b6d4);
+  --btn-secondary-hover: linear-gradient(135deg, #2563eb, #0284c7);
+  --btn-accent: linear-gradient(135deg, #f97316, #ec4899);
+  --btn-accent-hover: linear-gradient(135deg, #ea580c, #db2777);
+  
+  /* ===== LINK STATES ===== */
+  --link-default: #0891b2;
+  --link-hover: #06b6d4;
+  --link-active: #0f766e;
+  --link-visited: #8b5cf6;
+  
+  /* ===== FOCUS STATES ===== */
+  --focus-ring: rgba(6, 182, 212, 0.5);
+  --focus-border: #06b6d4;
+  
+  /* ===== DECORATIVE ELEMENTS ===== */
+  --shape-teal: rgba(20, 184, 166, 0.3);
+  --shape-blue: rgba(59, 130, 246, 0.3);
+  --shape-purple: rgba(139, 92, 246, 0.3);
+  --shape-pink: rgba(236, 72, 153, 0.3);
+  --shape-orange: rgba(249, 115, 22, 0.3);
+  
+  /* ===== PARTICLE COLORS ===== */
+  --particle-1: linear-gradient(45deg, #14b8a6, #06b6d4);
+  --particle-2: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  --particle-3: linear-gradient(45deg, #ec4899, #f97316);
+  
+  /* ===== GLOW EFFECTS ===== */
+  --glow-teal: 0 0 30px rgba(20, 184, 166, 0.3);
+  --glow-blue: 0 0 30px rgba(59, 130, 246, 0.3);
+  --glow-purple: 0 0 30px rgba(139, 92, 246, 0.3);
+  --glow-orange: 0 0 30px rgba(249, 115, 22, 0.3);
+  
+  /* ===== SHADOW VARIATIONS ===== */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+  --shadow-strong: 0 15px 40px rgba(0, 0, 0, 0.2);
+  --shadow-colored-teal: 0 10px 25px rgba(15, 118, 110, 0.2);
+  --shadow-colored-blue: 0 10px 25px rgba(59, 130, 246, 0.2);
+  --shadow-colored-purple: 0 10px 25px rgba(139, 92, 246, 0.2);
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Background Utilities */
+.bg-brand-gradient { background: var(--brand-gradient); }
+.bg-hero-gradient { background: var(--hero-gradient); }
+.bg-warm-gradient { background: var(--warm-gradient); }
+.bg-cool-gradient { background: var(--cool-gradient); }
+.bg-light-section { background: var(--light-section-bg); }
+.bg-dark-section { background: var(--dark-section-bg); }
+.bg-neutral-section { background: var(--neutral-section-bg); }
+
+/* Text Utilities */
+.text-brand-gradient {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-hero-title {
+  background: var(--hero-title);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-about-title {
+  background: var(--about-title);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Utilities */
+.btn-brand {
+  background: var(--btn-primary);
+  transition: all 0.3s ease;
+}
+
+.btn-brand:hover {
+  background: var(--btn-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-colored-teal);
+}
+
+.btn-accent {
+  background: var(--btn-accent);
+  transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+  background: var(--btn-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-colored-purple);
+}
+
+/* Glow Utilities */
+.glow-teal { box-shadow: var(--glow-teal); }
+.glow-blue { box-shadow: var(--glow-blue); }
+.glow-purple { box-shadow: var(--glow-purple); }
+.glow-orange { box-shadow: var(--glow-orange); }
+
+/* Animation Utilities */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientFlow 5s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Responsive Design Helpers */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient {
+    animation: none;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --about-text: #e2e8f0;
+    --projects-title: linear-gradient(135deg, #e2e8f0, #94a3b8, #06b6d4);
+  }
+}

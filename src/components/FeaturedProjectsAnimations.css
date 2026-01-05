@@ -1,0 +1,614 @@
+/* Featured Projects Section Advanced Animations */
+/* Rabeya Khatun Portfolio - Featured Projects */
+
+/* ===== PROJECT CARD 3D FLOATING ANIMATION ===== */
+@keyframes projectCard3DFloat {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  25% {
+    transform: translateY(-8px) rotateX(2deg) rotateY(1deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    transform: translateY(-4px) rotateX(0deg) rotateY(0deg);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  }
+  75% {
+    transform: translateY(-12px) rotateX(-2deg) rotateY(-1deg);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ===== GRADIENT WAVE ANIMATION ===== */
+@keyframes gradientWave {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  25% {
+    background-position: 25% 50%;
+    filter: hue-rotate(90deg) brightness(1.05);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg) brightness(1.1);
+  }
+  75% {
+    background-position: 75% 50%;
+    filter: hue-rotate(270deg) brightness(1.05);
+  }
+}
+
+/* ===== PROJECT IMAGE ZOOM AND TILT ===== */
+@keyframes projectImageZoom {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(1deg);
+  }
+}
+
+/* ===== PAGINATION DOT PULSE ===== */
+@keyframes paginationDotPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(59, 130, 246, 0);
+    transform: scale(1.1);
+  }
+}
+
+/* ===== FLOATING PROJECT PARTICLES ===== */
+@keyframes floatingProjectParticles {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translateY(-25px) translateX(12px) rotate(90deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-18px) translateX(-8px) rotate(180deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-30px) translateX(6px) rotate(270deg);
+    opacity: 0.6;
+  }
+}
+
+/* ===== MORPHING PROJECT SHAPES ===== */
+@keyframes morphingProjectShape {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  14.28% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(51.4deg) scale(1.1);
+  }
+  28.57% {
+    border-radius: 50% 30% 60% 40% / 40% 70% 60% 30%;
+    transform: rotate(102.8deg) scale(0.9);
+  }
+  42.85% {
+    border-radius: 40% 70% 30% 60% / 70% 40% 50% 60%;
+    transform: rotate(154.2deg) scale(1.05);
+  }
+  57.14% {
+    border-radius: 70% 30% 40% 60% / 30% 60% 40% 70%;
+    transform: rotate(205.6deg) scale(0.95);
+  }
+  71.42% {
+    border-radius: 30% 70% 60% 40% / 60% 30% 70% 40%;
+    transform: rotate(257deg) scale(1.08);
+  }
+  85.71% {
+    border-radius: 60% 40% 30% 70% / 40% 70% 30% 60%;
+    transform: rotate(308.4deg) scale(1.02);
+  }
+}
+
+/* ===== TECH STACK TAG SHIMMER ===== */
+@keyframes techStackShimmer {
+  0% {
+    background-position: -200% center;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    background-position: 200% center;
+    transform: scale(1);
+  }
+}
+
+/* ===== PROJECT CARD ENHANCED STYLES ===== */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.8s;
+  z-index: 10;
+}
+
+.project-card:hover::before {
+  left: 100%;
+}
+
+.project-card:hover {
+  animation: projectCard3DFloat 4s ease-in-out infinite;
+}
+
+/* ===== PROJECT IMAGE ANIMATIONS ===== */
+.project-image {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  transform-origin: center;
+}
+
+.project-card:hover .project-image img {
+  animation: projectImageZoom 0.6s ease-out forwards;
+}
+
+/* ===== FEATURED BADGE ANIMATIONS ===== */
+.featured-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  animation: techStackShimmer 2.5s ease-in-out infinite;
+}
+
+/* ===== FLOATING DECORATIVE ELEMENTS ===== */
+.floating-project-decoration {
+  animation: morphingProjectShape 20s ease-in-out infinite;
+}
+
+.floating-project-decoration:nth-child(2n) {
+  animation-delay: -4s;
+  animation-duration: 24s;
+}
+
+.floating-project-decoration:nth-child(3n) {
+  animation-delay: -8s;
+  animation-duration: 28s;
+}
+
+.floating-project-decoration:nth-child(4n) {
+  animation-delay: -12s;
+  animation-duration: 32s;
+}
+
+.floating-project-decoration:nth-child(5n) {
+  animation-delay: -16s;
+  animation-duration: 36s;
+}
+
+/* ===== SECTION TITLE LETTER EFFECTS ===== */
+.projects-title-letter {
+  display: inline-block;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+
+.projects-title-letter::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4, #10b981);
+  transition: width 0.5s ease;
+  border-radius: 2px;
+}
+
+.projects-title-letter:hover::after {
+  width: 100%;
+}
+
+.projects-title-letter:hover {
+  transform: translateY(-10px) rotateY(15deg) scale(1.1);
+  text-shadow: 0 12px 30px rgba(59, 130, 246, 0.5);
+}
+
+/* ===== PAGINATION CONTROLS ANIMATIONS ===== */
+.pagination-dot {
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.pagination-dot.active {
+  animation: paginationDotPulse 2s ease-in-out infinite;
+}
+
+.pagination-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: inherit;
+  transform: translate(-50%, -50%);
+  animation: paginationDotPulse 2.5s ease-in-out infinite;
+  z-index: -1;
+}
+
+.pagination-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.pagination-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  transition: all 0.4s ease;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.pagination-button:hover::before {
+  width: 120px;
+  height: 120px;
+}
+
+/* ===== PROJECT CONTENT ANIMATIONS ===== */
+.project-content {
+  transition: all 0.5s ease;
+}
+
+.project-card:hover .project-content {
+  transform: translateY(-3px);
+}
+
+.project-title {
+  transition: all 0.5s ease;
+  line-height: 1.3;
+}
+
+.project-card:hover .project-title {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4, #10b981);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.project-description {
+  transition: all 0.5s ease;
+  line-height: 1.6;
+}
+
+.project-card:hover .project-description {
+  color: rgba(75, 85, 99, 0.9);
+  transform: translateY(-1px);
+}
+
+/* ===== TECH STACK ANIMATIONS ===== */
+.tech-stack-tag {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  background-size: 200% 100%;
+}
+
+.tech-stack-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.tech-stack-tag:hover::before {
+  transform: translateX(100%);
+}
+
+.tech-stack-tag:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== ACTION BUTTONS ANIMATIONS ===== */
+.action-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.action-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transition: all 0.4s ease;
+  transform: translate(-50%, -50%);
+}
+
+.action-button:hover::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* ===== PROJECT LINKS ANIMATIONS ===== */
+.project-link {
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.project-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  transition: width 0.4s ease;
+}
+
+.project-card:hover .project-link::after {
+  width: 100%;
+}
+
+/* ===== VIEW ALL BUTTON ANIMATIONS ===== */
+.view-all-projects-button {
+  position: relative;
+  overflow: hidden;
+  background-size: 200% 100%;
+  animation: gradientWave 5s ease-in-out infinite;
+}
+
+.view-all-projects-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transition: all 0.4s ease;
+  transform: translate(-50%, -50%);
+}
+
+.view-all-projects-button:hover::after {
+  width: 250px;
+  height: 250px;
+}
+
+/* ===== RESPONSIVE ANIMATIONS ===== */
+@media (max-width: 768px) {
+  .project-card:hover {
+    animation: none;
+    transform: translateY(-8px);
+  }
+  
+  .floating-project-decoration {
+    animation-duration: 30s;
+  }
+  
+  .projects-title-letter:hover {
+    transform: translateY(-6px) scale(1.05);
+  }
+  
+  .pagination-dot {
+    animation-duration: 3s;
+  }
+  
+  .project-image img {
+    animation: none !important;
+  }
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .floating-project-decoration,
+  .pagination-dot,
+  .projects-title-letter,
+  .tech-stack-tag,
+  .action-button,
+  .view-all-projects-button,
+  .featured-badge {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .project-card:hover {
+    transform: none;
+  }
+  
+  .project-image img {
+    animation: none !important;
+  }
+}
+
+/* ===== HIGH CONTRAST MODE SUPPORT ===== */
+@media (prefers-contrast: high) {
+  .project-card {
+    border: 3px solid currentColor;
+  }
+  
+  .pagination-dot {
+    border: 2px solid currentColor;
+  }
+  
+  .tech-stack-tag {
+    border: 1px solid currentColor;
+  }
+  
+  .action-button {
+    border: 2px solid currentColor;
+  }
+  
+  .featured-badge {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .project-card,
+  .floating-project-decoration,
+  .pagination-dot,
+  .tech-stack-tag,
+  .action-button,
+  .view-all-projects-button {
+    animation: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  .project-image img {
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  .action-button {
+    display: none;
+  }
+}
+
+/* ===== DARK MODE ENHANCEMENTS ===== */
+@media (prefers-color-scheme: dark) {
+  .project-card {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: rgba(148, 163, 184, 0.3);
+  }
+  
+  .tech-stack-tag {
+    background: rgba(51, 65, 85, 0.6);
+    color: #e2e8f0;
+  }
+  
+  .project-title {
+    color: #f1f5f9;
+  }
+  
+  .project-description {
+    color: #cbd5e1;
+  }
+  
+  .pagination-button {
+    background: rgba(51, 65, 85, 0.8);
+    border-color: rgba(148, 163, 184, 0.3);
+  }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+.project-card:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 3px;
+}
+
+.pagination-button:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.pagination-dot:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.action-button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.view-all-projects-button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+.projects-section::-webkit-scrollbar {
+  width: 10px;
+}
+
+.projects-section::-webkit-scrollbar-track {
+  background: rgba(148, 163, 184, 0.1);
+  border-radius: 5px;
+}
+
+.projects-section::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  border-radius: 5px;
+}
+
+.projects-section::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #2563eb, #0891b2);
+}
+
+/* ===== LOADING STATES ===== */
+.project-card-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

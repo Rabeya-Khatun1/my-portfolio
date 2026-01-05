@@ -1,38 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
+/* Import Unified Theme */
+@import './styles/theme.css';
+
+/* ===== GLOBAL BACKGROUND ANIMATION ===== */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%, #f8fafc 100%);
+  background-size: 400% 400%;
+  animation: backgroundMove 20s ease-in-out infinite;
+  z-index: -2;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+  animation: float 15s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* ===== FLOATING PARTICLES ===== */
+.floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--primary-blue);
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: floatParticle 12s linear infinite;
+}
+
+.particle:nth-child(2n) {
+  background: var(--primary-cyan);
+  animation-delay: -3s;
+  animation-duration: 15s;
+}
+
+.particle:nth-child(3n) {
+  background: var(--primary-purple);
+  animation-delay: -6s;
+  animation-duration: 18s;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg);
+    opacity: 0;
   }
-  
-  body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    color: #374151;
+  10% {
+    opacity: 0.2;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-100px) translateX(50px) rotate(180deg);
+    opacity: 0;
   }
 }
 
 @layer components {
+  /* ===== UNIFIED BUTTON STYLES ===== */
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-hover;
   }
-  
+
   .btn-secondary {
-    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-hover;
   }
-  
+
+  .btn-outline {
+    @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 cursor-hover;
+  }
+
+  /* ===== LAYOUT UTILITIES ===== */
   .section-padding {
     @apply py-16 px-4 sm:px-6 lg:px-8;
   }
-  
+
   .container-max {
     @apply max-w-7xl mx-auto;
   }
+
+  /* ===== TEXT STYLES ===== */
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent;
+  }
+
+  .heading-primary {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-gradient;
+  }
+
+  .heading-secondary {
+    @apply text-3xl md:text-4xl font-bold text-gray-900;
+  }
+
+  /* ===== CARD STYLES ===== */
+  .card-primary {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200/50 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl cursor-hover;
+  }
+
+  .card-secondary {
+    @apply bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm rounded-xl p-6 shadow-md border border-gray-200/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg cursor-hover;
+  }
+
+  /* ===== GLASS EFFECT ===== */
+  .glass-effect {
+    @apply bg-white/20 backdrop-blur-lg border border-white/30 shadow-xl;
+  }
 }
 
-/* Custom scrollbar */
+/* ===== CURSOR ANIMATION ===== */
+.cursor-hover {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cursor-hover:hover {
+  transform: translateY(-2px) rotate(0.5deg);
+}
+
+/* ===== SECTION ANIMATIONS ===== */
+.section {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== HEADING ANIMATIONS ===== */
+.heading-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.heading-animate.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.heading-animate.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.heading-animate.delay-3 {
+  animation-delay: 0.6s;
+}
+
+/* ===== SCROLLBAR STYLING ===== */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -42,10 +186,47 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0ea5e9;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0284c7;
+  background: linear-gradient(135deg, #1d4ed8, #0891b2);
+}
+
+/* ===== SELECTION STYLES ===== */
+::selection {
+  background: #2563eb;
+  color: white;
+}
+
+::-moz-selection {
+  background: #2563eb;
+  color: white;
+}
+
+/* ===== FOCUS STYLES ===== */
+*:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  body::before,
+  body::after {
+    animation: none !important;
+  }
+  
+  .particle {
+    animation: none !important;
+  }
 }

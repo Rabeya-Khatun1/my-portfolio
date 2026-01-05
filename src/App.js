@@ -2,11 +2,16 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Journey from './components/Journey';
 import Skills from './components/Skills';
-import Projects from './components/Projects';
+import Services from './components/Services';
+import Blog from './components/Blog';
+import FeaturedProjects from './components/FeaturedProjects';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,11 +64,16 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar />
       <Hero />
       <About />
+      <Journey />
       <Skills />
-      <Projects />
+      <Services />
+      <Blog />
+      <FeaturedProjects />
       <Contact />
+      <Footer />
     </div>
   );
 }
