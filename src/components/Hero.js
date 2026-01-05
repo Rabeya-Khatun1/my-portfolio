@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import myPhoto from '../assets/my-photo.jpg'
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -541,7 +542,7 @@ const Hero = () => {
                 >
                   {/* Profile Image */}
                   <img 
-                    src="https://via.placeholder.com/400x400/2563eb/ffffff?text=RK" 
+                    src={myPhoto}
                     alt="Rabeya Khatun" 
                     className="w-full h-full object-cover"
                   />
