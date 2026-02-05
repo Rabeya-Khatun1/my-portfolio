@@ -1,195 +1,152 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import './AboutAnimations.css';
-import myPhoto from '../assets/myPicture.jpg'
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const About = () => {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-50px" });
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
+  const educationData = [
+    {
+      id: 1,
+      category: 'education',
+      title: 'Higher Secondary Certificate (Science)',
+      organization: 'Satkhira Government College',
+      department: 'Science Group',
+      duration: '2025 - Present',
+      description: 'Currently studying in Science stream with focus on mathematics, physics, and ICT. Building strong analytical and problem-solving foundations for computer science.',
+      skills: ['Mathematics', 'Physics', 'ICT', 'Problem Solving'],
+      accentColor: 'border-l-blue-500',
+      bgColor: 'bg-white dark:bg-gray-800',
+      icon: (
+        <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+          <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+          </svg>
+        </div>
+      )
+    },
+    {
+      id: 2,
+      category: 'certification',
+      title: 'MERN Stack Web Development',
+      organization: 'Programming Hero',
+      department: 'Online Certification',
+      duration: 'Jun 2025 - Dec 2025',
+      description: 'Comprehensive certification covering modern web development technologies including React, Node.js, Express, and MongoDB with hands-on projects.',
+      skills: ['MERN Stack', 'RESTful APIs', 'Authentication', 'Deployment'],
+      accentColor: 'border-l-purple-500',
+      bgColor: 'bg-white dark:bg-gray-800',
+      icon: (
+        <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+          <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+        </div>
+      )
+    }
+  ];
 
-  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const photoY = useTransform(scrollYProgress, [0, 1], [0, -30]);
-  const photoRotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
-
-  // Animated counter hook
-  const useCounter = (end, duration = 2.5) => {
-    const [count, setCount] = useState(0);
-    useEffect(() => {
-      if (isInView) {
-        let startTime;
-        const animate = (timestamp) => {
-          if (!startTime) startTime = timestamp;
-          const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-          setCount(Math.floor(progress * end));
-          if (progress < 1) requestAnimationFrame(animate);
-        };
-        setTimeout(() => requestAnimationFrame(animate), 1000);
-      }
-    }, [end, duration]); // Removed isInView from dependencies
-    return count;
-  };
-
-  const experienceCount = useCounter(3, 2);
-  const projectCount = useCounter(50, 2.5);
-  const clientCount = useCounter(25, 3);
-  const skillCount = useCounter(15, 2.8);
-
+  // Animation variants
   const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.2 } }
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.2 } }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } }
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   };
-
-  const titleVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.3 } }
-  };
-
-  const letterVariants = {
-    hidden: { opacity: 0, y: 30, rotateX: -45 },
-    visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } }
-  };
-
-  const techStack = [
-    { name: 'MongoDB', color: 'from-emerald-400 to-green-500', bgColor: 'bg-emerald-50' },
-    { name: 'Express.js', color: 'from-yellow-400 to-orange-500', bgColor: 'bg-yellow-50' },
-    { name: 'React.js', color: 'from-blue-400 to-cyan-500', bgColor: 'bg-blue-50' },
-    { name: 'Node.js', color: 'from-green-400 to-teal-500', bgColor: 'bg-green-50' },
-    { name: 'Git', color: 'from-orange-400 to-red-500', bgColor: 'bg-orange-50' },
-    { name: 'JavaScript', color: 'from-yellow-300 to-amber-500', bgColor: 'bg-yellow-50' }
-  ];
-
-  const stats = [
-    { number: experienceCount, suffix: "+", label: "Years Experience", color: "from-blue-400 to-cyan-500" },
-    { number: projectCount, suffix: "+", label: "Projects Completed", color: "from-purple-400 to-indigo-500" },
-    { number: clientCount, suffix: "+", label: "Happy Clients", color: "from-teal-400 to-emerald-500" },
-    { number: skillCount, suffix: "+", label: "Skills Mastered", color: "from-orange-400 to-red-500" }
-  ];
 
   return (
-      <section ref={sectionRef} id="about" className="section section-alt">
-      
-      {/* Background Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div className="absolute inset-0 opacity-30" style={{ y }}>
-          <div className="absolute top-32 left-16 w-96 h-96 bg-gradient-to-r from-blue-200 via-cyan-200 to-teal-200 rounded-full blur-3xl opacity-40" />
-          <div className="absolute bottom-32 right-16 w-80 h-80 bg-gradient-to-r from-purple-200 via-indigo-200 to-blue-200 rounded-full blur-3xl opacity-40" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-teal-200 via-cyan-200 to-blue-200 rounded-full blur-3xl opacity-30" />
+    <section className=" bg-white dark:bg-gray-900 py-10">
+      <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12">
+        {/* Left: About Me */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <h2 className="text-3xl font-bold text-blue-900 dark:text-white mb-6">About Me</h2>
+          <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg leading-relaxed">
+            Passionate <span className="font-semibold text-blue-500">MERN Stack Developer</span> with expertise in building modern, responsive web applications. Currently pursuing Science education while mastering cutting-edge web technologies through certification programs.
+          </p>
+          <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+            I specialize in creating scalable solutions that combine elegant front-end interfaces with robust back-end architecture. My dual focus on academic and practical development allows me to approach problems analytically and technically.
+          </p>
+          <motion.div
+  className="grid grid-cols-2 gap-6 mt-2"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8 }}
+>
+  {/* Projects Card */}
+  <motion.div
+    className="relative rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-500 text-center overflow-hidden"
+    whileHover={{ scale: 1.05 }}
+  >
+    <div className="text-4xl font-extrabold mb-2">20+</div>
+    <div className="text-lg font-medium">Projects Completed</div>
+
+    {/* Floating Glow */}
+    <div className="absolute -top-6 -right-6 w-20 h-20 bg-white/20 rounded-full blur-2xl animate-pulse"></div>
+  </motion.div>
+
+  {/* Skills Card */}
+  <motion.div
+    className="relative  rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-500 text-center overflow-hidden"
+    whileHover={{ scale: 1.05 }}
+  >
+    <div className="text-4xl font-extrabold mb-2">15+</div>
+    <div className="text-lg font-medium">Skills Mastered</div>
+
+    {/* Floating Glow */}
+    <div className="absolute -top-6 -right-6 w-20 h-20 bg-white/20 rounded-full blur-2xl animate-pulse"></div>
+  </motion.div>
+</motion.div>
+
         </motion.div>
 
-        <div className="absolute inset-0">
-          {[...Array(10)].map((_, i) => (
+        {/* Right: Education & Certification */}
+        <motion.div
+          ref={containerRef}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="space-y-6"
+        >
+          {educationData.map((item) => (
             <motion.div
-              key={i}
-              className="absolute opacity-15"
-              style={{
-                left: `${8 + i * 10}%`,
-                top: `${12 + (i % 4) * 22}%`,
-                width: `${30 + (i % 3) * 15}px`,
-                height: `${30 + (i % 3) * 15}px`,
-              }}
-              animate={{
-                y: [-15, 15, -15],
-                x: [-10, 10, -10],
-                rotate: [0, 180, 360],
-                scale: [0.9, 1.1, 0.9],
-              }}
-              transition={{ duration: 8 + i * 1.2, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
+              key={item.id}
+              variants={itemVariants}
+              className={`relative ${item.bgColor} rounded-xl p-6  ${item.accentColor}   dark:border-gray-700`}
             >
-              <div className="w-full h-full rounded-full" style={{ background: `linear-gradient(135deg, rgba(59,130,246,0.2), rgba(147,197,253,0.15))` }} />
+              <div className="flex items-start gap-4 mb-4">
+                {item.icon}
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">{item.organization} • {item.department} • {item.duration}</p>
+                </div>
+              </div>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">{item.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {item.skills.map((skill, index) => (
+                  <span
+                    key={index}
+                    className={`px-3 py-1 rounded-full text-sm ${
+                      item.category === 'education'
+                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400'
+                        : 'bg-purple-50 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400'
+                    }`}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="container">
-        <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center min-h-screen"
-          variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
-
-          {/* Left Column - Photo */}
-          <motion.div className="flex justify-center lg:justify-start order-2 lg:order-1" variants={itemVariants}>
-            <div className="relative">
-              <motion.div
-                className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px]"
-                style={{ y: photoY, rotate: photoRotate }}
-                animate={{ y: [-8, 8, -8] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <motion.div className="absolute inset-8 backdrop-blur-xl bg-white/15 border border-white/25 overflow-hidden shadow-2xl rounded-[60%_40%_30%_70%_/_60%_30%_70%_40%]">
-                  <img src={myPhoto} alt="Rabeya Khatun" className="w-full h-full object-cover" />
-                </motion.div>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Right Column - Content */}
-          <motion.div className="space-y-10 order-1 lg:order-2" variants={itemVariants}>
-            
-            {/* Title */}
-            <motion.div variants={titleVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
-              <div className="flex flex-wrap leading-none mb-6">
-                {"About Me".split('').map((letter, index) => (
-                  <motion.span key={index} className="heading-primary inline-block" variants={letterVariants}>
-                    {letter === ' ' ? '\u00A0' : letter}
-                  </motion.span>
-                ))}
-              </div>
-              <motion.div className="w-40 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 rounded-full"
-                initial={{ scaleX: 0 }} animate={isInView ? { scaleX: 1 } : {}} transition={{ duration: 1.2, delay: 1 }} />
-            </motion.div>
-
-            {/* Description */}
-            <motion.div className="space-y-8">
-              <motion.p className="text-large"
-                initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.6 }}>
-                Hello! I'm <span className="font-bold text-gradient">Rabeya Khatun</span>, a passionate <span className="font-bold text-gradient">MERN Stack Developer</span> with expertise in creating modern, responsive web applications. I specialize in building scalable solutions using cutting-edge technologies and best practices.
-              </motion.p>
-            </motion.div>
-
-            {/* Tech Stack */}
-            <motion.div className="space-y-6">
-              <h3 className="heading-tertiary">Technical Expertise</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {techStack.map((tech, index) => (
-                  <motion.div key={tech.name} className="card-secondary text-center overflow-hidden hover:shadow-xl transition-all duration-300"
-                    initial={{ opacity: 0, scale: 0.8, y: 20 }} animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}>
-                    <motion.div className="text-2xl mb-3">
-                      <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${tech.color} flex items-center justify-center text-white font-bold text-sm mx-auto`}>
-                        {tech.name.charAt(0)}
-                      </div>
-                    </motion.div>
-                    <div className="font-semibold text-gray-800 text-sm">{tech.name}</div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-              {stats.map((stat, index) => (
-                <motion.div key={stat.label} className="card text-center"
-                  whileHover={{ scale: 1.05, y: -5 }} initial={{ opacity: 0, scale: 0.8 }} animate={isInView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.6, delay: 1.6 + index * 0.1 }}>
-                  <motion.div className={`w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-r ${stat.color} flex items-center justify-center text-white font-bold`}>
-                    {stat.label.split(' ')[0].charAt(0)}
-                  </motion.div>
-                  <motion.div className={`text-2xl md:text-3xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>{stat.number}{stat.suffix}</motion.div>
-                  <div className="text-secondary font-medium text-xs leading-tight">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-
-          </motion.div>
-
         </motion.div>
       </div>
     </section>

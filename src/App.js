@@ -2,13 +2,12 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Journey from './components/Journey';
 import Skills from './components/Skills';
 import Services from './components/Services';
-import Blog from './components/Blog';
 import FeaturedProjects from './components/FeaturedProjects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -37,7 +36,7 @@ function App() {
 
     requestAnimationFrame(raf);
 
-    // GSAP ScrollTrigger animations
+
     gsap.fromTo('.fade-in-up', 
       { 
         opacity: 0, 
@@ -63,18 +62,19 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Navbar />
-      <Hero />
-      <About />
-      <Journey />
-      <Skills />
-      <Services />
-      <Blog />
-      <FeaturedProjects />
-      <Contact />
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <FeaturedProjects />
+         <Services />
+        <Contact />
+        <Footer />
+        
+      </div>
+    </ThemeProvider>
   );
 }
 

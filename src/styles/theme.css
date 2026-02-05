@@ -64,6 +64,27 @@
   --element-spacing: 2rem;
 }
 
+/* ===== DARK MODE VARIABLES ===== */
+.dark {
+  /* ===== DARK MODE BACKGROUNDS ===== */
+  --bg-primary: var(--neutral-gray-900);
+  --bg-secondary: var(--neutral-gray-800);
+  --bg-dark: var(--neutral-gray-950);
+  --gradient-background: linear-gradient(135deg, var(--neutral-gray-800), var(--neutral-gray-900));
+  
+  /* ===== DARK MODE TEXT COLORS ===== */
+  --text-primary: var(--neutral-gray-100);
+  --text-secondary: var(--neutral-gray-300);
+  --text-muted: var(--neutral-gray-400);
+  
+  /* ===== DARK MODE SHADOWS ===== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+  --shadow-colored: 0 10px 25px rgba(37, 99, 235, 0.4);
+}
+
 /* ===== GLOBAL STYLES ===== */
 * {
   margin: 0;
@@ -81,6 +102,7 @@ body {
   color: var(--text-primary);
   background: var(--bg-primary);
   overflow-x: hidden;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 /* ===== UTILITY CLASSES ===== */
@@ -93,15 +115,19 @@ body {
 .section {
   padding: var(--section-padding);
   position: relative;
+  background: var(--bg-primary);
+  transition: background-color var(--transition-normal);
 }
 
 .section-alt {
   background: var(--bg-secondary);
+  transition: background-color var(--transition-normal);
 }
 
 .section-dark {
   background: var(--bg-dark);
   color: var(--text-white);
+  transition: background-color var(--transition-normal);
 }
 
 /* ===== TYPOGRAPHY ===== */
@@ -202,6 +228,10 @@ body {
   border: 1px solid var(--neutral-gray-200);
 }
 
+.dark .card {
+  border: 1px solid var(--neutral-gray-700);
+}
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-xl);
@@ -211,6 +241,11 @@ body {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .card-glass {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* ===== ANIMATIONS ===== */
