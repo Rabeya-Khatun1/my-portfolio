@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
@@ -11,37 +11,43 @@ import Services from './components/Services';
 import FeaturedProjects from './components/FeaturedProjects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Loading from './Loading';
 
 gsap.registerPlugin(ScrollTrigger);
 
+
+// 👇 Lenis global
+let lenisInstance = null;
+export const getLenis = () => lenisInstance;
+
 function App() {
+const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    // Initialize Lenis for smooth scrolling
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
       smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
+      duration: 1.2,
     });
+
+    lenisInstance = lenis;
 
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
-
     requestAnimationFrame(raf);
 
-
-    gsap.fromTo('.fade-in-up', 
-      { 
-        opacity: 0, 
-        y: 50 
-      },
+    gsap.fromTo(
+      '.fade-in-up',
+      { opacity: 0, y: 50 },
       {
         opacity: 1,
         y: 0,
@@ -50,31 +56,45 @@ function App() {
         scrollTrigger: {
           trigger: '.fade-in-up',
           start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
-        }
+        },
       }
     );
 
     return () => {
       lenis.destroy();
+      lenisInstance = null;
     };
   }, []);
 
   return (
-    <ThemeProvider>
-      <div className="App">
-        <Navbar />
-        <Hero />
-        <About />
-        <Skills />
-        <FeaturedProjects />
-         <Services />
-        <Contact />
+    <div>
+       {loading ? <Loading></Loading> : (
+      <ThemeProvider>
+      <div className='bg-white dark:bg-gray-900'>
+          <Navbar />
+        <section id="home">
+          <Hero />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="featured-projects">
+          <FeaturedProjects />
+        </section>
+        <section id="services">
+          <Services />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
         <Footer />
-        
       </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    )}  
+    </div>
   );
 }
 

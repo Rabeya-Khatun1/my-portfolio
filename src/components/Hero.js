@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { motion,useSpring } from 'framer-motion';
 import myPhoto from '../assets/my-photo.jpg';
+import { Typewriter } from 'react-simple-typewriter';
+
 
 const Hero = () => {
 
@@ -90,26 +92,35 @@ const Hero = () => {
           
           {/* Left Column - Content */}
           <motion.div className="space-y-8 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <motion.p className="text-lg font-medium text-blue-600 mb-2">
-                Hello, I'm
-              </motion.p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-blue-600 bg-clip-text text-transparent">
-                Rabeya Khatun
-              </h1>
-              <motion.p 
-                className="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-200 mt-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
-                MERN Stack Developer
-              </motion.p>
-            </motion.div>
+           <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+>
+  <motion.p className="text-xl font-semibold text-blue-600 mb-2">
+    Hello, I'm
+  </motion.p>
+
+  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-blue-600 bg-clip-text text-transparent">
+    <Typewriter
+      words={['Rabeya Khatun']}
+      cursor
+      cursorStyle="|"
+      typeSpeed={80}
+    />
+  </h1>
+
+  <motion.p className="text-2xl md:text-3xl font-semibold text-blue-700 dark:text-blue-200 mt-2">
+    <Typewriter
+      words={['MERN Stack Developer', "Junior Frontend Developer"]}
+      loop={false}
+      cursor
+      cursorStyle="_"
+      typeSpeed={60}
+      delaySpeed={1000}
+    />
+  </motion.p>
+</motion.div>
 
             <motion.div
               className="relative"
@@ -212,8 +223,8 @@ const Hero = () => {
                   <motion.a
                     key={social.name}
                     href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noreferrer"
+                  
                     className={`group relative w-12 h-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl flex items-center justify-center text-gray-600 dark:text-gray-300 transition-all duration-500 shadow-sm ${social.color} hover:text-white hover:-translate-y-1.5`}
                     whileTap={{ scale: 0.9 }}
                   >

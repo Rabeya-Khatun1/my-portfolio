@@ -73,7 +73,7 @@ const About = () => {
             Passionate <span className="font-semibold text-blue-500">MERN Stack Developer</span> with expertise in building modern, responsive web applications. Currently pursuing Science education while mastering cutting-edge web technologies through certification programs.
           </p>
           <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-            I specialize in creating scalable solutions that combine elegant front-end interfaces with robust back-end architecture. My dual focus on academic and practical development allows me to approach problems analytically and technically.
+            I specializing in creating scalable solutions that combine elegant front-end interfaces with robust back-end architecture. My dual focus on academic and practical development allows me to approach problems analytically and technically.
           </p>
           <motion.div
   className="grid grid-cols-2 gap-6 mt-2"

@@ -272,7 +272,7 @@ const MarqueeLine = ({ data, reverse = false }) => {
   const items = reverse ? [...data].reverse() : data;
 
   return (
-    <div className="overflow-hidden mb-8">
+    <div className="overflow-hidden pb-8">
       <div className="flex gap-6 min-w-max animate-marquee">
         {items.concat(items).map((skill, index) => (
           <div

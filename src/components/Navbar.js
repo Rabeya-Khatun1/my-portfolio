@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeController from './ThemeController';
+import { getLenis } from '../App';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,9 +11,12 @@ const Navbar = () => {
 
   const menuItems = useMemo(() => [
     { name: 'Home', href: '#home', id: 'home' },
-    { name: 'About', href: '#about', id: 'about' },
-    { name: 'Skills', href: '#skills', id: 'skills' },
+        { name: 'About', href: '#about', id: 'about' },
+      { name: 'Skills', href: '#skills', id: 'skills' },
+
+  
     { name: 'Projects', href: '#featured-projects', id: 'featured-projects' },
+       { name: 'Services', href: '#services', id: 'services' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ], []);
 
@@ -50,24 +55,21 @@ const handleDownloadCV = () => {
   document.body.removeChild(link);
 };
 
+const handleNavClick = (href, id) => {
+  setActiveSection(id);
+  setIsOpen(false);
 
-  const handleNavClick = (href, id) => {
-    setActiveSection(id);
-    setIsOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80; 
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+  const element = document.querySelector(href);
+  const lenis = getLenis();
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  if (element && lenis) {
+    lenis.scrollTo(element, {
+      offset: -80,
+      duration: 1.2,
+    });
+  }
+};
+
 
   return (
     <motion.nav
@@ -102,7 +104,7 @@ const handleDownloadCV = () => {
                 <h1 className="text-xl font-bold bg-blue-500 bg-clip-text text-transparent">
                   Rabeya Khatun
                 </h1>
-                <p className="text-sm text-gray-600">MERN Stack Developer</p>
+                <p className="text-sm text-gray-600 dark:text-white">MERN Stack Developer</p>
               </div>
             </motion.div>
 

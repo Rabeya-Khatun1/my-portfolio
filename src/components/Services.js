@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaDatabase } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaDatabase, FaGitAlt } from "react-icons/fa";
 import { SiMongodb, SiExpress } from "react-icons/si";
 
 const services = [
@@ -38,11 +38,19 @@ const services = [
     icon: <SiExpress className="w-10 h-10 text-gray-600 dark:text-gray-400" />,
     glow: "rgba(107, 114, 128, 0.4)", // gray
   },
+ {
+  title: "Authentication & Security",
+  description:
+    "Implementing secure authentication systems using JWT, OAuth, and session management, ensuring user data protection.",
+  icon: <FaGitAlt className="w-10 h-10 text-red-500 dark:text-red-400" />,
+  glow: "rgba(239, 68, 68, 0.4)", // red
+}
+
 ];
 
 export default function Services() {
   return (
-    <section className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white pb-10 px-2 md:px-10 transition-colors duration-500">
+    <section className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-10 px-2 md:px-10 transition-colors duration-500">
       <h2 className="text-4xl font-bold text-center mb-12">Services I Prefer</h2>
 
       <div className="grid gap-8 md:grid-cols-3 lg:grid-cols-3">
