@@ -98,7 +98,7 @@ const FeaturedProjects = () => {
           {projectsData.map((project, index) => (
             <motion.div
               key={project.id}
-              className="relative h-[520px] rounded-3xl hover:border-2 border-blue-600 overflow-hidden group"
+              className="relative md:h-[520px] rounded-3xl hover:border-2 border-blue-600 overflow-hidden group"
               variants={cardVariants}
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}

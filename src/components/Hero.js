@@ -101,7 +101,7 @@ const Hero = () => {
     Hello, I'm
   </motion.p>
 
-  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-blue-600 bg-clip-text text-transparent">
+  <h1 className="text-2xl md:text-6xl lg:text-7xl font-bold bg-blue-600 bg-clip-text text-transparent">
     <Typewriter
       words={['Rabeya Khatun']}
       cursor
@@ -110,7 +110,7 @@ const Hero = () => {
     />
   </h1>
 
-  <motion.p className="text-2xl md:text-3xl font-semibold text-blue-700 dark:text-blue-200 mt-2">
+  <motion.p className="text-lg md:text-3xl font-semibold text-blue-700 dark:text-blue-200 mt-2">
     <Typewriter
       words={['MERN Stack Developer', "Junior Frontend Developer"]}
       loop={false}
@@ -132,7 +132,7 @@ const Hero = () => {
                 {"Crafting Digital".split('').map((letter, index) => (
                   <motion.span
                     key={`word1-${index}`}
-                    className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white inline-block"
+                    className="text-2xl md:text-5xl font-bold text-gray-800 dark:text-white inline-block"
                     variants={letterVariants}
                     animate={{
                       ...floatingVariants.animate,
@@ -150,7 +150,7 @@ const Hero = () => {
                 {"Experiences".split('').map((letter, index) => (
                   <motion.span
                     key={`word2-${index}`}
-                    className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white inline-block"
+                    className="text-2xl md:text-5xl font-bold text-gray-800 dark:text-white inline-block"
                     variants={letterVariants}
                   >
                     {letter === ' ' ? '\u00A0' : letter}
@@ -160,7 +160,7 @@ const Hero = () => {
             </motion.div>
 
             <motion.p 
-              className="text-lg text-gray-600 dark:text-gray-400 max-w-lg mx-auto lg:mx-0 leading-relaxed"
+              className="text-sm text-gray-600 dark:text-gray-400 max-w-lg mx-auto lg:mx-0 leading-relaxed"
               variants={itemVariants}
               initial="hidden"
               animate="visible"
@@ -243,7 +243,7 @@ const Hero = () => {
           {/* Right Column - Profile Image */}
           <motion.div className="flex justify-center">
             <div className="relative">
-              <motion.div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              <motion.div className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-96 lg:h-96 mx-5 md:mx-auto ">
                 <motion.div
                   className="absolute inset-0 bg-blue-50/50 dark:bg-gray-800 backdrop-blur-xl border border-blue-100 dark:border-gray-700 shadow-2xl overflow-hidden"
                   variants={blobVariants}
@@ -252,29 +252,38 @@ const Hero = () => {
                   <img src={myPhoto} alt="Profile" className="w-full h-full object-cover" />
                 </motion.div>
 
-                {['React', 'Node.js', 'MongoDB', 'Express'].map((tech, index) => (
-                  <motion.div
-                    key={tech}
-                    className="absolute bg-white/90 dark:bg-gray-800 border border-blue-100 dark:border-gray-700 rounded-lg px-3 py-1.5 shadow-lg"
-                    style={{
-                      top: `${20 + index * 20}%`,
-                      left: index % 2 === 0 ? '-20%' : '100%',
-                    }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ 
-                      opacity: 1, scale: 1,
-                      x: [0, index % 2 === 0 ? -5 : 5, 0]
-                    }}
-                    transition={{ 
-                      delay: 1 + index * 0.2, duration: 0.6,
-                      x: { duration: 2, repeat: Infinity, ease: "easeInOut" }
-                    }}
-                  >
-                    <span className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                      {tech}
-                    </span>
-                  </motion.div>
-                ))}
+               {['React', 'Node.js', 'MongoDB', 'Express'].map((tech, index) => {
+  const isEven = index % 2 === 0;
+  
+  return (
+    <motion.div
+      key={tech}
+      className="absolute bg-white/90 dark:bg-gray-800 border border-blue-100 dark:border-gray-700 rounded-lg px-2 py-1 md:px-3 md:py-1.5 shadow-lg z-20"
+      style={{
+        top: `${15 + index * 20}%`,
+      
+        left: isEven 
+          ? (typeof window !== 'undefined' && window.innerWidth < 640 ? '-10%' : '-20%') 
+          : (typeof window !== 'undefined' && window.innerWidth < 640 ? '75%' : '95%'),
+      }}
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ 
+        opacity: 1, 
+        scale: 1,
+        x: [0, isEven ? -5 : 5, 0]
+      }}
+      transition={{ 
+        delay: 1 + index * 0.2, 
+        duration: 0.6,
+        x: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+      }}
+    >
+      <span className="text-[10px] md:text-sm font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent whitespace-nowrap">
+        {tech}
+      </span>
+    </motion.div>
+  );
+})}
               </motion.div>
             </div>
           </motion.div>

@@ -20,7 +20,11 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col justify-center items-center space-y-4 md:space-y-1">
+            <p className='text-gray-900 dark:text-white text-3xl font-bold'>
+              Rabeya Khatun
+            </p>
+            <h1 className='text-gray-900 dark:text-white text-sm'> MERN Stack Developer · Building scalable & modern web apps</h1>
             <p className= "text-gray-900 dark:text-white text-sm">
               © {currentYear} Rabeya Khatun. All rights reserved.
             </p>

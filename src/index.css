@@ -2,6 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 
 /* Import Unified Theme */
 @import './styles/theme.css';
@@ -229,4 +231,7 @@ body::after {
   .particle {
     animation: none !important;
   }
+}
+body {
+  @apply font-sans;
 }

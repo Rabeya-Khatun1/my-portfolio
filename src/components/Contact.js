@@ -55,7 +55,7 @@ const Contact = () => {
 
   return (
     <section ref={sectionRef} id="contact" className="relative py-20 px-4 bg-white dark:bg-gray-900 overflow-hidden">
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="md:max-w-6xl md:mx-auto relative z-10">
 
         {/* Header */}
         <motion.div 
@@ -73,23 +73,30 @@ const Contact = () => {
         </motion.div>
 
         {/* Contact Info Cards */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-12">
-          {contactInfo.map((info, i) => (
-            <motion.div 
-              key={i} 
-              whileHover={{ y: -5, scale: 1.02 }} 
-              className="bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 flex items-center gap-4"
-            >
-              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${info.color} text-white flex items-center justify-center text-2xl`}>
-                {info.icon}
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 dark:text-white">{info.title}</h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">{info.details}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12">
+  {contactInfo.map((info, i) => (
+    <motion.div
+      key={i}
+      whileHover={{ y: -5, scale: 1.02 }}
+      className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 flex items-center gap-4"
+    >
+      <div
+        className={`w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${info.color} text-white flex items-center justify-center text-xl sm:text-2xl`}
+      >
+        {info.icon}
+      </div>
+      <div>
+        <h4 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
+          {info.title}
+        </h4>
+        <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm">
+          {info.details}
+        </p>
+      </div>
+    </motion.div>
+  ))}
+</div>
+
 
         {/* Form + Sidebar */}
         <div className="grid lg:grid-cols-5 gap-8">

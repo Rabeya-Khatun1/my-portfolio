@@ -75,13 +75,13 @@ const handleNavClick = (href, id) => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 mx-14 md:mx-auto ${
         scrolled 
           ? 'py-3 bg-white/70 backdrop-blur-lg shadow-lg border-b border-white/20' 
           : 'py-5 bg-transparent'
       }`}
     >
-      <div className=" mx-auto px-6 lg:px-12">
+      <div className=" px-6 lg:px-12">
         <div className="flex items-center justify-between">
           
           {/* Logo Section */}
@@ -173,7 +173,7 @@ const handleNavClick = (href, id) => {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-4 right-4 mt-4 lg:hidden"
           >
-            <div className="bg-white/90 backdrop-blur-2xl rounded-3xl p-4 shadow-2xl border border-white/40 flex flex-col space-y-2">
+            <div className="bg-white/90 backdrop-blur-2xl rounded-3xl px-16 md:p-4 shadow-2xl border border-white/40 flex flex-col space-y-2">
               {menuItems.map((item) => (
                 <button
                   key={item.id}

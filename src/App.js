@@ -12,6 +12,9 @@ import FeaturedProjects from './components/FeaturedProjects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Loading from './Loading';
+import BackToTopButton from './components/BackToTop';
+import HireMeButton from './components/HireMe';
+import SplashCursorDemo from './SplashCursor';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,9 +71,10 @@ const [loading, setLoading] = useState(true);
 
   return (
     <div>
+      <SplashCursorDemo></SplashCursorDemo>
        {loading ? <Loading></Loading> : (
       <ThemeProvider>
-      <div className='bg-white dark:bg-gray-900'>
+      <div className='bg-white dark:bg-gray-900 mx-16 md:mx-auto'>
           <Navbar />
         <section id="home">
           <Hero />
@@ -90,6 +94,8 @@ const [loading, setLoading] = useState(true);
         <section id="contact">
           <Contact />
         </section>
+        <BackToTopButton></BackToTopButton>
+      <HireMeButton></HireMeButton>
         <Footer />
       </div>
       </ThemeProvider>

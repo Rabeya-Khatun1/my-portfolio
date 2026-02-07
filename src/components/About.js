@@ -1,9 +1,8 @@
 import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion} from 'framer-motion';
 
 const About = () => {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-50px" });
 
   const educationData = [
     {
@@ -59,97 +58,105 @@ const About = () => {
   };
 
   return (
-    <section className=" bg-white dark:bg-gray-900 py-10">
-      <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12">
-        {/* Left: About Me */}
+<section id="about" className="bg-white dark:bg-gray-900 py-16 md:py-24 transition-colors duration-500 overflow-hidden">
+  <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    
+    {/* Left: About Me */}
+    <motion.div
+      initial={{ opacity: 0, x: -30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="text-center lg:text-left"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-white mb-6">About Me</h2>
+      <p className="text-gray-700 dark:text-gray-300 mb-4 text-xs md:text-lg leading-relaxed">
+        Passionate <span className="font-semibold text-blue-500">MERN Stack Developer</span> with expertise in building modern, responsive web applications. Currently pursuing Science education while mastering cutting-edge web technologies.
+      </p>
+      <p className="text-gray-700 dark:text-gray-300 text-xs md:text-lg leading-relaxed">
+        I specialize in creating scalable solutions that combine elegant front-end interfaces with robust back-end architecture. My focus allows me to approach problems analytically and technically.
+      </p>
+
+
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Projects Card */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          className="relative rounded-2xl p-6 md:p-8 bg-blue-50 dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 text-center overflow-hidden border border-blue-100 dark:border-gray-700"
+          whileHover={{ y: -5 }}
         >
-          <h2 className="text-3xl font-bold text-blue-900 dark:text-white mb-6">About Me</h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg leading-relaxed">
-            Passionate <span className="font-semibold text-blue-500">MERN Stack Developer</span> with expertise in building modern, responsive web applications. Currently pursuing Science education while mastering cutting-edge web technologies through certification programs.
-          </p>
-          <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-            I specializing in creating scalable solutions that combine elegant front-end interfaces with robust back-end architecture. My dual focus on academic and practical development allows me to approach problems analytically and technically.
-          </p>
-          <motion.div
-  className="grid grid-cols-2 gap-6 mt-2"
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.8 }}
->
-  {/* Projects Card */}
-  <motion.div
-    className="relative rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-500 text-center overflow-hidden"
-    whileHover={{ scale: 1.05 }}
-  >
-    <div className="text-4xl font-extrabold mb-2">20+</div>
-    <div className="text-lg font-medium">Projects Completed</div>
-
-    {/* Floating Glow */}
-    <div className="absolute -top-6 -right-6 w-20 h-20 bg-white/20 rounded-full blur-2xl animate-pulse"></div>
-  </motion.div>
-
-  {/* Skills Card */}
-  <motion.div
-    className="relative  rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-500 text-center overflow-hidden"
-    whileHover={{ scale: 1.05 }}
-  >
-    <div className="text-4xl font-extrabold mb-2">15+</div>
-    <div className="text-lg font-medium">Skills Mastered</div>
-
-    {/* Floating Glow */}
-    <div className="absolute -top-6 -right-6 w-20 h-20 bg-white/20 rounded-full blur-2xl animate-pulse"></div>
-  </motion.div>
-</motion.div>
-
+          <div className="text-3xl md:text-4xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">20+</div>
+          <div className="text-sm md:text-lg font-medium text-gray-700 dark:text-gray-200">Projects Completed</div>
+          <div className="absolute -top-6 -right-6 w-16 h-16 bg-blue-500/10 rounded-full blur-2xl"></div>
         </motion.div>
 
-        {/* Right: Education & Certification */}
+        {/* Skills Card */}
         <motion.div
-          ref={containerRef}
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="space-y-6"
+          className="relative rounded-2xl p-6 md:p-8 bg-purple-50 dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 text-center overflow-hidden border border-purple-100 dark:border-gray-700"
+          whileHover={{ y: -5 }}
         >
-          {educationData.map((item) => (
-            <motion.div
-              key={item.id}
-              variants={itemVariants}
-              className={`relative ${item.bgColor} rounded-xl p-6  ${item.accentColor}   dark:border-gray-700`}
-            >
-              <div className="flex items-start gap-4 mb-4">
-                {item.icon}
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">{item.organization} • {item.department} • {item.duration}</p>
-                </div>
-              </div>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">{item.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {item.skills.map((skill, index) => (
-                  <span
-                    key={index}
-                    className={`px-3 py-1 rounded-full text-sm ${
-                      item.category === 'education'
-                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400'
-                        : 'bg-purple-50 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400'
-                    }`}
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          <div className="text-3xl md:text-4xl font-extrabold text-purple-600 dark:text-purple-400 mb-2">15+</div>
+          <div className="text-sm md:text-lg font-medium text-gray-700 dark:text-gray-200">Skills Mastered</div>
+          <div className="absolute -top-6 -right-6 w-16 h-16 bg-purple-500/10 rounded-full blur-2xl"></div>
         </motion.div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.div>
+
+    {/* Right: Education & Certification */}
+    <motion.div
+      ref={containerRef}
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="space-y-6"
+    >
+      {educationData.map((item) => (
+        <motion.div
+          key={item.id}
+          variants={itemVariants}
+          className={`relative ${item.bgColor} rounded-xl md:p-6 shadow-sm border border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-all`}
+        >
+          <div className="flex flex-col sm:flex-row items-start gap-4 mb-4 p-1">
+            <div className="md:p-3 bg-white dark:bg-gray-900 rounded-lg shadow-sm">
+              {item.icon}
+            </div>
+            <div>
+              <h4 className="text-sm md:text-xl font-bold text-gray-900 dark:text-white leading-tight">{item.title}</h4>
+              <p className="text-gray-600 dark:text-gray-400 text-xs md:text-sm mt-1">
+                {item.organization} <span className="hidden sm:inline">•</span> <br className="sm:hidden" /> {item.duration}
+              </p>
+            </div>
+          </div>
+          
+          <p className="text-gray-700 dark:text-gray-300 text-xs md:text-base mb-4 leading-relaxed">
+            {item.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2">
+            {item.skills.map((skill, index) => (
+              <span
+                key={index}
+                className={`px-3 py-1 rounded-full text-[10px] md:text-xs font-medium uppercase tracking-wider ${
+                  item.category === 'education'
+                    ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300'
+                    : 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300'
+                }`}
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
   );
 };
 
