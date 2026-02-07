@@ -20,7 +20,7 @@ const HireMeButton = () => {
   return (
     <a
       href="#contact"
-      className={`fixed bottom-4 right-16 sm:bottom-6 sm:right-20 z-[9999]
+      className={`fixed bottom-4 right-32 sm:bottom-6 sm:right-36 z-[9999]
       flex items-center gap-2
       bg-gradient-to-r from-indigo-600 to-blue-600
       text-white px-4 py-3 rounded-full shadow-xl

@@ -7,14 +7,11 @@ const Footer = () => {
   return (
     <footer className="bg-white dark:bg-gray-900 text-white relative overflow-hidden">
  
-      <div className="container relative z-10 py-12">
-      
-
   
 
         {/* Bottom Bar */}
         <motion.div
-          className="border-t border-gray-700 pt-8 text-center"
+          className=" py-8 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -59,7 +56,7 @@ const Footer = () => {
         </motion.div>
           </div>
         </motion.div>
-      </div>
+   
     </footer>
   );
 };

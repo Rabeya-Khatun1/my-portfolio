@@ -75,7 +75,7 @@ const handleNavClick = (href, id) => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 mx-14 md:mx-auto ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4 md:px-10 ${
         scrolled 
           ? 'py-3 bg-white/70 backdrop-blur-lg shadow-lg border-b border-white/20' 
           : 'py-5 bg-transparent'
@@ -92,7 +92,7 @@ const handleNavClick = (href, id) => {
     
             >
               <motion.div
-                className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg"
+                className="w-8 h-8 md:w-12 md:h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg"
               
               >
                 <span className="text-white font-bold text-xl">
@@ -100,11 +100,11 @@ const handleNavClick = (href, id) => {
                 </span>
               </motion.div>
               
-              <div className="hidden sm:block">
-                <h1 className="text-xl font-bold bg-blue-500 bg-clip-text text-transparent">
+              <div className=" sm:block">
+                <h1 className="md:text-xl font-bold bg-blue-500 bg-clip-text text-transparent">
                   Rabeya Khatun
                 </h1>
-                <p className="text-sm text-gray-600 dark:text-white">MERN Stack Developer</p>
+                <p className="text-xs md:text-sm text-gray-600 dark:text-white">MERN Stack Developer</p>
               </div>
             </motion.div>
 
@@ -153,13 +153,13 @@ const handleNavClick = (href, id) => {
             className="lg:hidden p-2 text-gray-700 bg-white/50 rounded-xl border border-gray-200 shadow-sm"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  {isOpen ? (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+  ) : (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
+  )}
+</svg>
           </button>
         </div>
       </div>
@@ -171,14 +171,14 @@ const handleNavClick = (href, id) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-4 right-4 mt-4 lg:hidden"
+            className="absolute right-1 lg:hidden "
           >
-            <div className="bg-white/90 backdrop-blur-2xl rounded-3xl px-16 md:p-4 shadow-2xl border border-white/40 flex flex-col space-y-2">
+            <div className="bg-white/90 backdrop-blur-2xl p-2 rounded-3xl shadow-2xl border border-white/40 flex flex-col space-y-2 px-4 py-6 w-48 mr-10">
               {menuItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.href, item.id)}
-                  className={`flex items-center justify-between px-6 py-4 rounded-2xl font-bold transition-all ${
+                  className={`flex items-center justify-between px-3 py-1 rounded-xl text-xs font-bold transition-all ${
                     activeSection === item.id 
                     ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' 
                     : 'text-gray-700 hover:bg-gray-100'
@@ -188,13 +188,16 @@ const handleNavClick = (href, id) => {
                   {activeSection === item.id && <span>→</span>}
                 </button>
               ))}
+                 <div className='px-2 '>
+               <ThemeController />
+           </div>
               <button
                 onClick={() => handleNavClick('#contact', 'contact')}
-                className="w-full mt-2 py-4 bg-gray-900 text-white font-bold rounded-2xl"
+                className="w-full mt-2 px-2 py-2 bg-gray-900 text-white text-xs font-bold rounded-xl"
               >
                 Download CV
               </button>
-              <ThemeController />
+        
             </div>
           </motion.div>
         )}

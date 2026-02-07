@@ -74,7 +74,8 @@ const [loading, setLoading] = useState(true);
       <SplashCursorDemo></SplashCursorDemo>
        {loading ? <Loading></Loading> : (
       <ThemeProvider>
-      <div className='bg-white dark:bg-gray-900 mx-16 md:mx-auto'>
+     <div className='bg-white dark:bg-gray-900 px-4 md:px-16'>
+
           <Navbar />
         <section id="home">
           <Hero />
@@ -94,8 +95,10 @@ const [loading, setLoading] = useState(true);
         <section id="contact">
           <Contact />
         </section>
-        <BackToTopButton></BackToTopButton>
+       <section className='px-16 border '>
+         <BackToTopButton></BackToTopButton>
       <HireMeButton></HireMeButton>
+       </section>
         <Footer />
       </div>
       </ThemeProvider>
