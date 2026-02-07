@@ -9,7 +9,7 @@ const FeaturedProjects = () => {
     {
       id: 1,
       title: "E-Tuition-BD",
-      description: "A full-stack e-learning platform that allows students to access online courses, pay online, and track their progress.",
+      description: "A full-stack e-learning platform that allows students to access online courses, pay online, and track their progress automatically.",
       techStack: ["React.js", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Stripe API"],
       demoUrl: "https://e-tuition-bd-3d12f.web.app/",
       githubUrl: "https://github.com/Rabeya-Khatun1/e-tuition-bd-client",
@@ -98,7 +98,7 @@ const FeaturedProjects = () => {
           {projectsData.map((project, index) => (
             <motion.div
               key={project.id}
-              className="relative md:h-[520px] rounded-3xl hover:border-2 border-blue-600 overflow-hidden group"
+              className="relative md:h-[530px] pb-2 rounded-3xl hover:border-2 border-blue-600 overflow-hidden group"
               variants={cardVariants}
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -135,11 +135,12 @@ const FeaturedProjects = () => {
                       {tech}
                     </span>
                   ))}
+                  
                 </div>
 
-    <Link to={`/projects/${project.id}`} className="inline-block mt-5 px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
+  <button>  <Link to={`/projects/${project.id}`} className="inline-block mt-2 px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
       View Project
-    </Link> 
+    </Link> </button>
               
               </div>
 

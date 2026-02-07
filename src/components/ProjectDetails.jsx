@@ -40,11 +40,11 @@ const ProjectDetails = () => {
 
   return (
     <motion.div
-      className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-28 pb-12 md:px-4"
+      className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-14 pb-12 md:px-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <div className="md:max-w-5xl mx-20 md:mx-auto">
+      <div className="px-4 md:px-16">
         {/* Back Button */}
         <Link
           to="/"
@@ -209,7 +209,7 @@ const ProjectDetails = () => {
               This project highlights strong Full-Stack Development skills.
             </p>
             <Link
-              to="/contact"
+              to="/"
               className="inline-block mt-4 font-bold text-blue-600 hover:underline"
             >
               Let's discuss this project
