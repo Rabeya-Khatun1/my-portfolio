@@ -74,7 +74,7 @@ const [loading, setLoading] = useState(true);
       <SplashCursorDemo></SplashCursorDemo>
        {loading ? <Loading></Loading> : (
       <ThemeProvider>
-     <div className='bg-white dark:bg-gray-900 px-4 md:px-16'>
+     <div className='bg-white dark:bg-gray-900 px-2 md:px-16'>
 
           <Navbar />
         <section id="home">

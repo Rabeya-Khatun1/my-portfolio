@@ -75,18 +75,19 @@ const ProjectDetails = () => {
             </div>
 
             <div className="flex gap-3">
-              <a
-                href={project.demoUrl}
-                rel="noreferrer"
-                
-                className="p-1 md:p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl"
-              >
-                <FaExternalLinkAlt />
-              </a>
+             <a
+  href={project.demoUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="p-1 md:p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl"
+>
+  <FaExternalLinkAlt />
+</a>
+
               <a
                 href={project.githubUrl}
                 rel="noreferrer"
-                
+                target="_blank"
                 className="p-1 md:p-3 bg-gray-700 hover:bg-black text-white rounded-xl"
               >
                 <FaGithub />
@@ -183,16 +184,19 @@ const ProjectDetails = () => {
                     Project Assets
                   </h3>
                   <div className="flex flex-col gap-3">
-                    <a
-                      href={project.demoUrl}
-                      rel="noreferrer"
-                      className="p-1 md:p-3 bg-white dark:bg-gray-700 rounded-xl flex justify-between"
-                    >
-                      Live Preview <FaExternalLinkAlt />
-                    </a>
+                  <a
+  href={project.demoUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="p-1 md:p-3 bg-white dark:bg-gray-700 rounded-xl flex justify-between"
+>
+  Live Preview <FaExternalLinkAlt />
+</a>
+
                     <a
                       href={project.githubUrl}
                       rel="noreferrer"
+                      target="_blank"
                       className="p-1 md:p-3 bg-white dark:bg-gray-700 rounded-xl flex justify-between"
                     >
                       Source Code <FaGithub />

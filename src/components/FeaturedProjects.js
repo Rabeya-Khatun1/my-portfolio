@@ -10,7 +10,7 @@ const FeaturedProjects = () => {
       id: 1,
       title: "E-Tuition-BD",
       description: "A full-stack e-learning platform that allows students to access online courses, pay online, and track their progress automatically.",
-      techStack: ["React.js", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Stripe API"],
+      techStack: ["React.js", "Node.js", "Express", "MongoDB", "Stripe API"],
       demoUrl: "https://e-tuition-bd-3d12f.web.app/",
       githubUrl: "https://github.com/Rabeya-Khatun1/e-tuition-bd-client",
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80',
@@ -28,26 +28,16 @@ const FeaturedProjects = () => {
     },
     {
       id: 3,
-      title: "English Janala",
-      description: "A vocabulary learning web app where users can explore English words level-wise, hear pronunciation, and save words for practice.",
-      techStack: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "REST API"],
-      demoUrl: "https://jolly-dolphin-cb85c8.netlify.app/",
-      githubUrl: "https://github.com/Rabeya-Khatun1/english-janala",
-      image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80',
-      featured: false
-    },
-    {
-      id: 4,
-      title: "Emergency Hotline Service Website",
+      title: "Emergency Hotline ",
       description: "A simple and responsive web application to quickly access emergency service numbers, copy them, and simulate calls.",
       techStack: ["HTML5", "CSS3", "Tailwind CSS", "DaisyUI", "JavaScript"],
-      demoUrl: "https://jolly-dolphin-cb85c8.netlify.app/",
+      demoUrl: "https://jazzy-rabanadas-29061c.netlify.app/",
       githubUrl: "https://github.com/Rabeya-Khatun1/emergency-hotline",
       image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80',
       featured: false
     },
     {
-      id: 5,
+      id: 4,
       title: "Product hub Website",
       description: "A simple and responsive product hub web application to add, list, and manage products with payment-ready UI.",
       techStack: ["HTML5", "Tailwind CSS", "DaisyUI", "JavaScript", "Next JS"],
@@ -56,16 +46,7 @@ const FeaturedProjects = () => {
       image: 'https://images.pexels.com/photos/7586656/pexels-photo-7586656.jpeg',
       featured: true
     },
-    {
-      id: 6,
-      title: "Hero apps ",
-      description: "A simple and responsive web application to install, manage, and list apps with a clean user interface.",
-      techStack: ["HTML5", "CSS3", "Tailwind CSS", "DaisyUI", "JavaScript"],
-      demoUrl: "https://faded-bo-hero-apps08y.surge.sh/",
-      githubUrl: "https://github.com/Rabeya-Khatun1/hero-apps",
-      image: 'https://images.pexels.com/photos/3850263/pexels-photo-3850263.jpeg',
-      featured: true
-    }
+ 
   ];
 
   const cardVariants = {
@@ -89,7 +70,7 @@ const FeaturedProjects = () => {
         </p>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8 pt-8"
+          className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-8 pt-8"
           variants={pageVariants}
           initial="hidden"
           animate="visible"
@@ -98,7 +79,7 @@ const FeaturedProjects = () => {
           {projectsData.map((project, index) => (
             <motion.div
               key={project.id}
-              className="relative md:h-[530px] pb-2 rounded-3xl hover:border-2 border-blue-600 overflow-hidden group"
+              className="relative pb-2 rounded-3xl hover:border-2 border-blue-600 overflow-hidden group"
               variants={cardVariants}
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -123,14 +104,14 @@ const FeaturedProjects = () => {
               />
 
               {/* Content */}
-              <div className="relative z-10 space-y-2 px-5 py-4">
+              <div className="relative z-10 space-y-2 px-4 py-3">
                 <h3 className="font-semibold text-xl">{project.title}</h3>
-                <p>{project.description}</p>
+                <p className='text-xs'>{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full border border-blue-200"
+                      className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full border border-blue-200"
                     >
                       {tech}
                     </span>

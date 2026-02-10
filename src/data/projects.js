@@ -76,45 +76,9 @@ export const projects = [
     }
   },
 
+
   {
     id: 3,
-    title: "English Janala",
-    description:
-      "A vocabulary learning platform where users can explore English words level-wise with pronunciation and practice features.",
-
-    role: "Frontend Development",
-    featured: false,
-
-    image:
-      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200",
-
-    demoUrl: "https://jolly-dolphin-cb85c8.netlify.app/",
-    githubUrl: "https://github.com/Rabeya-Khatun1/english-janala",
-
-    technologies: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Tailwind CSS",
-      "REST API"
-    ],
-
-    keyFeatures: [
-      "Level-wise vocabulary exploration",
-      "Audio pronunciation support",
-      "Save words for practice",
-      "Responsive UI"
-    ],
-
-    ui: {
-      gradient: "from-purple-500 to-pink-500",
-      bgColor: "bg-purple-50",
-      shadowColor: "shadow-purple-200"
-    }
-  },
-
-  {
-    id: 4,
     title: "Emergency Hotline Service",
     description:
       "A responsive emergency hotline web application to quickly access, copy, and simulate calls to emergency services.",
@@ -125,7 +89,7 @@ export const projects = [
     image:
       "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=1200",
 
-    demoUrl: "https://jolly-dolphin-cb85c8.netlify.app/",
+    demoUrl: "https://jazzy-rabanadas-29061c.netlify.app/",
     githubUrl: "https://github.com/Rabeya-Khatun1/emergency-hotline",
 
     technologies: [
@@ -150,7 +114,7 @@ export const projects = [
     }
   },
  {
-  id: 5,
+  id: 4,
   title: "Product Hub Website",
   description:
     "A simple and responsive product hub web application to add, list, and manage products with payment-ready UI.",
@@ -186,41 +150,6 @@ export const projects = [
   }
 },
 
- {
-  id: 6,
-  title: "Hero Apps",
-  description:
-    "A simple and responsive web application to install, manage, and list apps with a clean user interface.",
 
-  role: "Vanilla JS Frontend Development",
-  featured: true,
-
-  image:
-    "https://images.pexels.com/photos/3850263/pexels-photo-3850263.jpeg",
-
-  demoUrl: "https://faded-bo-hero-apps08y.surge.sh/",
-  githubUrl: "https://github.com/Rabeya-Khatun1/hero-apps",
-
-  technologies: [
-    "HTML5",
-    "CSS3",
-    "Tailwind CSS",
-    "DaisyUI",
-    "JavaScript"
-  ],
-
-  keyFeatures: [
-    "App installation-style UI",
-    "Dynamic app listing",
-    "Responsive and mobile-friendly design",
-    "Clean and minimal layout"
-  ],
-
-  ui: {
-    gradient: "from-purple-500 to-pink-500",
-    bgColor: "bg-purple-50",
-    shadowColor: "shadow-purple-200"
-  }
-}
 
 ];
